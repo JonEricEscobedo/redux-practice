@@ -1,7 +1,5 @@
-export const addVote = (questionId, answerId) => {
-  return {
+export const addVote = (questionId, answerId) => ({
     type: 'VOTE',
     questionId: questionId,
     answerId: answerId
-  };
-};
+})

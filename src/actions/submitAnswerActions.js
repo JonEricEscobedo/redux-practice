@@ -1,6 +1,4 @@
-export const submitAnswer = (isSubmitted) => {
-    return {
-      type: 'SUBMIT_ANSWER',
-      payload: isSubmitted
-    }
-};
+export const submitAnswer = isSubmitted => ({
+    type: 'SUBMIT_ANSWER',
+    payload: isSubmitted
+});

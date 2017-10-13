@@ -122,35 +122,21 @@ class App extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        questions: state.question,
-        currentQuestion: state.currentQuestion,
-        selectedAnswerIndex: state.selectedAnswerIndex.answerIndex,
-        selectedRadio: state.selectedRadio.selectedRadio,
-        submitted: state.submitted,
-    }
-}
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addVote: (questionId, answerId) => {
-            dispatch(addVote(questionId, answerId));
-        },
-        setQuestion: (question) => {
-            dispatch(setQuestion(question));
-        },
+const mapStateToProps = state => ({
+    questions: state.question,
+    currentQuestion: state.currentQuestion,
+    selectedAnswerIndex: state.selectedAnswerIndex.answerIndex,
+    selectedRadio: state.selectedRadio.selectedRadio,
+    submitted: state.submitted,
+});
 
-        setAnswerIndex: (index) => {
-            dispatch(setAnswerIndex(index));
-        },
-        setRadio: (selection) => {
-            dispatch(setRadio(selection));
-        },
-        submitAnswer: (isSubmitted) => {
-            dispatch(submitAnswer(isSubmitted));
-        }
-    }
-}
+const mapDispatchToProps = dispatch => ({
+    addVote: (questionId, answerId) => dispatch(addVote(questionId, answerId)),
+    setQuestion: question => dispatch(setQuestion(question)),
+    setAnswerIndex: index => dispatch(setAnswerIndex(index)),
+    setRadio: selection => dispatch(setRadio(selection)),
+    submitAnswer: isSubmitted => dispatch(submitAnswer(isSubmitted))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
